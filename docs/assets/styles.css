@@ -1,14 +1,12 @@
 :root {
-  color-scheme: dark;
-  --text: #f5f5f7;
-  --muted: #a8a8b3;
-  --border: #30303b;
-  --accent: #f4b41a;
-  --accent-hover: #ffd15c;
-  --background: #0d0d12;
-  --surface: #17171f;
-  --surface-soft: #1e1e28;
-  --max-width: 860px;
+  color-scheme: light;
+  --text: #202124;
+  --muted: #5f6368;
+  --border: #dadce0;
+  --link: #6b3fa0;
+  --background: #ffffff;
+  --subtle-background: #f8f7fa;
+  --max-width: 820px;
 }
 
 * {
@@ -17,32 +15,28 @@
 
 html {
   font-size: 16px;
-  scroll-behavior: smooth;
 }
 
 body {
   min-height: 100vh;
   margin: 0;
   color: var(--text);
-  background:
-    radial-gradient(circle at 50% -180px, #3b2a08 0, transparent 420px),
-    var(--background);
+  background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.65;
+  line-height: 1.6;
 }
 
 a {
-  color: var(--accent);
-  text-underline-offset: 3px;
+  color: var(--link);
+  text-underline-offset: 2px;
 }
 
 a:hover {
-  color: var(--accent-hover);
   text-decoration-thickness: 2px;
 }
 
 a:focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--link);
   outline-offset: 3px;
 }
 
@@ -53,11 +47,10 @@ a:focus-visible {
 
 .site-header {
   border-bottom: 1px solid var(--border);
-  background: rgba(13, 13, 18, 0.92);
 }
 
 .nav {
-  min-height: 68px;
+  min-height: 64px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -66,13 +59,9 @@ a:focus-visible {
 
 .brand {
   color: var(--text);
-  font-size: 1.08rem;
+  font-size: 1.05rem;
   font-weight: 700;
   text-decoration: none;
-}
-
-.brand-mark {
-  color: var(--accent);
 }
 
 .nav-links {
@@ -86,21 +75,22 @@ a:focus-visible {
 }
 
 .nav-links a[aria-current="page"] {
-  color: var(--accent);
   font-weight: 700;
 }
 
 main {
-  padding: 52px 0 76px;
+  padding: 48px 0 72px;
+}
+
+.hero,
+.legal {
+  padding: 0;
 }
 
 .eyebrow {
   margin: 0 0 8px;
-  color: var(--accent);
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
+  color: var(--muted);
+  font-size: 0.875rem;
 }
 
 h1,
@@ -111,19 +101,19 @@ h3 {
 
 h1 {
   margin: 0;
-  font-size: clamp(2.15rem, 6vw, 3.25rem);
+  font-size: clamp(2rem, 5vw, 2.75rem);
 }
 
 h2 {
-  margin: 38px 0 10px;
-  font-size: 1.4rem;
+  margin: 36px 0 10px;
+  font-size: 1.35rem;
 }
 
 .hero p {
-  max-width: 700px;
+  max-width: 680px;
   margin: 16px 0 0;
   color: var(--muted);
-  font-size: 1.08rem;
+  font-size: 1.05rem;
 }
 
 .meta {
@@ -135,38 +125,37 @@ h2 {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 26px;
+  margin-top: 24px;
 }
 
 .button {
   display: inline-block;
-  padding: 10px 15px;
-  border: 1px solid #555563;
-  border-radius: 8px;
+  padding: 9px 14px;
+  border: 1px solid #9aa0a6;
+  border-radius: 4px;
   color: var(--text);
-  background: var(--surface);
-  font-weight: 700;
+  background: var(--background);
+  font-weight: 600;
   text-decoration: none;
 }
 
 .button.primary {
-  border-color: var(--accent);
-  color: #16120a;
-  background: var(--accent);
+  border-color: var(--link);
+  color: #ffffff;
+  background: var(--link);
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
-  margin-top: 44px;
+  margin-top: 40px;
 }
 
 .card {
-  padding: 22px;
+  padding: 20px;
   border: 1px solid var(--border);
-  border-radius: 10px;
-  background: var(--surface);
+  border-radius: 4px;
 }
 
 .card h2 {
@@ -174,19 +163,19 @@ h2 {
   font-size: 1.2rem;
 }
 
-.card p {
-  margin-bottom: 0;
-  color: var(--muted);
+.card p,
+.legal p,
+.legal li {
+  color: var(--text);
 }
 
 .notice,
 .contact-box {
-  margin: 26px 0;
-  padding: 17px 19px;
+  margin: 24px 0;
+  padding: 16px 18px;
   border: 1px solid var(--border);
-  border-left: 4px solid var(--accent);
-  border-radius: 8px;
-  background: var(--surface-soft);
+  border-radius: 4px;
+  background: var(--subtle-background);
 }
 
 .contact-box p {
@@ -194,16 +183,10 @@ h2 {
 }
 
 .site-footer {
-  padding: 25px 0;
+  padding: 24px 0;
   border-top: 1px solid var(--border);
   color: var(--muted);
   font-size: 0.875rem;
-}
-
-@media (max-width: 720px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 @media (max-width: 600px) {
@@ -212,14 +195,14 @@ h2 {
     align-items: flex-start;
     flex-direction: column;
     padding: 16px 0;
-    gap: 9px;
-  }
-
-  .nav-links {
-    gap: 14px;
+    gap: 8px;
   }
 
   main {
-    padding-top: 34px;
+    padding-top: 32px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
   }
 }
